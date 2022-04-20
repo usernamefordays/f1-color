@@ -10,11 +10,11 @@
 <script>function convert(){if(hex.value!=""){hexToHSL(hex.value)}else{if(re.value!=""){rgbToHSL(re.value,gr.value,bl.value)}}}function hexPressed(a){re.value="";gr.value="";bl.value=""}function isNumberKey(c){hex.value="";var a=(c.which)?c.which:event.keyCode;if(a>31&&(a<48||a>57)){return false}return true}function hexToHSL(c){result=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(c);r=parseInt(result[1],16);g=parseInt(result[2],16);b=parseInt(result[3],16);red=parseInt(result[1],16);green=parseInt(result[2],16);blue=parseInt(result[3],16);r/=255,g/=255,b/=255;var n=Math.max(r,g,b),f=Math.min(r,g,b);var i,o,e=(n+f)/2;if(n==f){i=o=0}else{var k=n-f;o=e>0.5?k/(2-n-f):k/(n+f);switch(n){case r:i=(g-b)/k+(g<b?6:0);break;case g:i=(b-r)/k+2;break;case b:i=(r-g)/k+4;break}i/=6}var m=Math.round(i*239);var a=Math.round(o*240);var j=Math.round(e*240);console.log(m,a,j);output1.value=m;output2.value=a;output3.value=j;document.getElementById("preview").style.backgroundColor="rgb("+red+","+green+","+blue+")";document.getElementById("btn").style.backgroundColor="rgb("+red+","+green+","+blue+")"}function rgbToHSL(c,f,p){r=c;g=f;b=p;if((r>255)||(g>255)||(b>255)){alert("The maximum RGB value is 255");return}r/=255,g/=255,b/=255;var o=Math.max(r,g,b),i=Math.min(r,g,b);var j,q,e=(o+i)/2;if(o==i){j=q=0}else{var m=o-i;q=e>0.5?m/(2-o-i):m/(o+i);switch(o){case r:j=(g-b)/m+(g<b?6:0);break;case g:j=(b-r)/m+2;break;case b:j=(r-g)/m+4;break}j/=6}var n=Math.round(j*239);var a=Math.round(q*240);var k=Math.round(e*240);console.log(n,a,k);output1.value=n;output2.value=a;output3.value=k;document.getElementById("preview").style.backgroundColor="rgb("+c+","+f+","+p+")";document.getElementById("btn").style.backgroundColor="rgb("+c+","+f+","+p+")"};</script>
 </head>
 <body>
-<h1>F1 2020 Color Convertor</h1>
+<h1>F1 2021 Color Convertor</h1>
 <p id=disclaimer>This website has no affiliation with Formula 1 or Codemasters</p>
 <p>HEX</p>
 <input onkeypress="return hexPressed(event)" type=text id=hex placeholder=#FF8700>
-<p>RGB</p>
+<p>RGB</p>20
 <input onkeypress="return isNumberKey(event)" type=text name=txtChar id=re class=rgb placeholder=255>
 <input onkeypress="return isNumberKey(event)" type=text name=txtChar id=gr class=rgb placeholder=135>
 <input onkeypress="return isNumberKey(event)" type=text name=txtChar id=bl class=rgb placeholder=0>
